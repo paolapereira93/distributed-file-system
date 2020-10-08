@@ -2,7 +2,7 @@ Espaço de armazenamento distribuído. Com serviço de chekpoint.
 
 Passos para rodar o sistema:
 
-# 1 - SERVIDOR DE CONFIGURAÇÃO DO SISTEMA
+### SERVIDOR DE CONFIGURAÇÃO DO SISTEMA
 
 ```bash
 gcc -g -pthread ServerConfig.c -o config; 
@@ -12,7 +12,7 @@ gcc -g -pthread ServerConfig.c -o config;
 * Editar arquivo de configuração "config.txt" de acordo com os endereços de ip e porta dos servidores
 * Roda na porta 9740
 
-# 2 - SERVIDORES QUE OFERECEM O SERVIÇO DE MEMÓRIA
+### SERVIDORES QUE OFERECEM O SERVIÇO DE MEMÓRIA
 
 ```bash
 gcc -g -pthread Server.c MemoryManager.c -o server
@@ -35,7 +35,7 @@ gcc -g -pthread Server.c MemoryManager.c -o server
 	int shmkey = 1238;
 	int semkey = 1234;
 
-# 3 - LOGGERS
+### LOGGERS
 
 ```bash
 gcc -g -pthread Logger.c MemoryManager.c -o logger
@@ -55,7 +55,7 @@ gcc -g -pthread Logger.c MemoryManager.c -o logger
 em 9735 e o 2 em 8674);
 * shmkey e semkey devem, obrigatoriamente, ser iguais aos valores do servidor ao qual ele é responsável localmente (pois são recursos compartilhados).
 
-# 4 - CLIENTES
+### CLIENTES
 
 * configurar ip do servidor de configuração nos clientes
 
