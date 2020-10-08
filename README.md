@@ -2,19 +2,25 @@ Espaço de armazenamento distribuído. Com serviço de chekpoint.
 
 Passos para rodar o sistema:
 
-1 - SERVIDOR DE CONFIGURAÇÃO DO SISTEMA:
+# 1 - SERVIDOR DE CONFIGURAÇÃO DO SISTEMA
 
-gcc -g -pthread ServerConfig.c -o config
+```bash
+gcc -g -pthread ServerConfig.c -o config; 
 ./config
+```
 
 * Editar arquivo de configuração "config.txt" de acordo com os endereços de ip e porta dos servidores
 * Roda na porta 9740
 
-2 - SERVIDORES QUE OFERECEM O SERVIÇO DE MEMÓRIA:
+# 2 - SERVIDORES QUE OFERECEM O SERVIÇO DE MEMÓRIA
 
+```bash
 gcc -g -pthread Server.c MemoryManager.c -o server
+```
 
+```bash
 ./server ?(int port int shmkey int semkey)
+```
 
 * Três parâmetros opicionais, útil quando testado mais de um servidor na mesma máquina (nesse caso, esses valores devem ser obrigatoriamente diferentes):
 
@@ -29,11 +35,15 @@ gcc -g -pthread Server.c MemoryManager.c -o server
 	int shmkey = 1238;
 	int semkey = 1234;
 
-3 - LOGGERS:
+# 3 - LOGGERS
 
+```bash
 gcc -g -pthread Logger.c MemoryManager.c -o logger
+```
 
+```bash
 ./logger int is_master_logger ?(int port int shmkey int semkey)
+```
 
 * Um parâmetro obrigatório: int is_master_logger:
 	0: é um logger comum;
@@ -45,9 +55,11 @@ gcc -g -pthread Logger.c MemoryManager.c -o logger
 em 9735 e o 2 em 8674);
 * shmkey e semkey devem, obrigatoriamente, ser iguais aos valores do servidor ao qual ele é responsável localmente (pois são recursos compartilhados).
 
-4 - CLIENTES
+# 4 - CLIENTES
 
 * configurar ip do servidor de configuração nos clientes
 
+```bash
 gcc -g -pthread Client.c MemoryManager.c -o client
 ./client & ./client  & ./client & ./client & ./client
+```
