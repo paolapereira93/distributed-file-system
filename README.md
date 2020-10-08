@@ -1,6 +1,6 @@
 Espaço de armazenamento distribuído. Com serviço de chekpoint.
 
-<div style="text-align:center"><img src=" Architecture.jpeg" /></div>
+<div style="text-align:center"><img src="Architecture.jpeg" /></div>
 
 Passos para rodar o sistema:
 
