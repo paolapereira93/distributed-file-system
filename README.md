@@ -1,4 +1,4 @@
-Espaço de armazenamento distribuído. Com serviço de chekpoint.
+Espaço de armazenamento distribuído. Com serviço de checkpoint.
 
 <div style="text-align:center"><img src="Architecture.jpeg" /></div>
 
